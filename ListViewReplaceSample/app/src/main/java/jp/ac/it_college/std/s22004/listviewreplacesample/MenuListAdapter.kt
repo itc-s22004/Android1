@@ -22,7 +22,7 @@ class MenuListAdapter(
     override fun onBindViewHolder(holder: MenuListAdapter.ViewHolder, position: Int) {
         holder.binding.tvMenu.text   = data[position]
         holder.binding.root.setOnClickListener {
-            val msg = it.context.resources.getText(R.string.toast_msg, data[position])
+            val msg = it.context.resources.getString(R.string.toast_msg, data[position])
             Toast.makeText(it.context, msg, Toast.LENGTH_LONG).show()
         }
     }
