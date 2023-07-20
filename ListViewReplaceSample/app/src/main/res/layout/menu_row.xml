@@ -9,6 +9,8 @@
         android:id="@+id/tvMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:paddingStart="8dp"
         android:textSize="24sp"
         tools:text="定食" />
 </LinearLayout>
