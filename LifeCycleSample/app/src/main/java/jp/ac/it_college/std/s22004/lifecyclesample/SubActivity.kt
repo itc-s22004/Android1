@@ -6,20 +6,21 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import jp.ac.it_college.std.s22004.lifecyclesample.databinding.ActivityMainBinding
+import jp.ac.it_college.std.s22004.lifecyclesample.databinding.ActivitySubAcitivyBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class SubActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySubAcitivyBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i("LifeCycleSample", "Main onCreate() called.")
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySubAcitivyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btNext.setOnClickListener(::onNextClick)
+        binding.btPrev.setOnClickListener(::onPrevClick)
     }
-    private fun onNextClick(view: View) {
-        val intent = Intent(this, SubActivity::class.java)
-        startActivity(intent)
+
+    private fun onPrevClick(view: View) {
+        finish()
     }
 
     override fun onStart() {
