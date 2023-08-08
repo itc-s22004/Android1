@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.lvMenu.apply {
             adapter = MenuListAdapter(menuList) {name, price ->
-                val intent2MenuThanks = Intent(
-                    this@MainActivity,
+                val intent2MenuThanks = Intent(  //Intent ---> 画面遷移させるやつ
+                    this@MainActivity,   // (this, 遷移場所)
                     MenuThanksActivity::class.java
                 )
                 intent2MenuThanks.putExtra("menuName", name)
                 intent2MenuThanks.putExtra("menuPrice", price)
 
-                startActivity(intent2MenuThanks)
+                startActivity(intent2MenuThanks)  //画面を出すための
             }
             LinearLayoutManager(this@MainActivity).let {
                 layoutManager = it

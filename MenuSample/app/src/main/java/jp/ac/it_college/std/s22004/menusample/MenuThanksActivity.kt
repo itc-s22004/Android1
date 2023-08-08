@@ -1,13 +1,13 @@
-package jp.ac.it_college.std.s22004.intentsample
+package jp.ac.it_college.std.s22004.menusample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import jp.ac.it_college.std.s22004.intentsample.databinding.ActivityMenuThanksBinding
+import jp.ac.it_college.std.s22004.menusample.databinding.ActivityMenuThanksBinding
 
 class MenuThanksActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuThanksBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {   // 自分でオーバーライドした？
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuThanksBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -21,5 +21,6 @@ class MenuThanksActivity : AppCompatActivity() {
         binding.btThxBack.setOnClickListener {
             finish()
         }
+
     }
 }
