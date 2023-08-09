@@ -3,6 +3,8 @@ package jp.ac.it_college.std.s22004.menusample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +12,7 @@ import jp.ac.it_college.std.s22004.menusample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val menuList = mutableListOf<jp.ac.it_college.std.s22004.menusample.Menu>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         initList(binding.lvMenu)
     }
     private fun initList(view: RecyclerView) {
-        view.adapter = MenuListAdapter(teishokuList, ::order) // ::---  メンバ参照
+        menuList.addAll(teishokuList)
+        view.adapter = MenuListAdapter(menuList, ::order) // ::---  メンバ参照
         val layoutManager = LinearLayoutManager(this)
         view.layoutManager = layoutManager
         view.addItemDecoration(DividerItemDecoration(this, layoutManager.orientation))
@@ -30,5 +34,29 @@ class MainActivity : AppCompatActivity() {
             putExtra("menuName", name)
             putExtra("menuPrice", price)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_options_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val result = when (item.itemId) {
+            R.id.menuListOptionTeishoku -> resetMenu(teishokuList)
+
+            R.id.menuListOptionCurry -> resetMenu(curryList)
+
+            else -> super.onOptionsItemSelected(item)
+
+        }
+        return result
+    }
+
+    private fun resetMenu(list: List<jp.ac.it_college.std.s22004.menusample.Menu>): Boolean {   // ココ重要
+        menuList.clear()
+        menuList.addAll(list)
+        binding.lvMenu.adapter?.notifyDataSetChanged()
+        return true
     }
 }
