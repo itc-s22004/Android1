@@ -37,7 +37,8 @@ class MenuThanksFragment : Fragment() {
         val menuPrice = arguments?.getInt(ARG_PRICE) ?: 0
 
         binding.tvMenuName.text = menuName
-        binding.tvMenuPrice.text = "%.d".format(menuPrice)
+//        binding.tvMenuPrice.text = "%,d".format(menuPrice)
+        binding.tvMenuPrice.text = "%,d".format(menuPrice)
 
         //ボタンのイベントリスナを設定
         binding.btThxBack.setOnClickListener(::onBackButtonClick)

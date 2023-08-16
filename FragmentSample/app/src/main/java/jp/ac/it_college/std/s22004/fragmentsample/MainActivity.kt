@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         // MenuListFragment から受け取ったデータを詰め直して
         // MenuThanksFragmentを表示させる
         supportFragmentManager.commit {
-            setReorderingAllowed(true)
+            setReorderingAllowed(true)   //書いたほうがいいやつ
             addToBackStack("Only List")
             replace(R.id.fragmentMainContainer, MenuThanksFragment::class.java,
                 bundleOf(
