@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import jp.ac.it_college.std.s22004.fragmentsample.databinding.FragmentMenuThanksBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -12,6 +13,7 @@ import jp.ac.it_college.std.s22004.fragmentsample.databinding.FragmentMenuThanks
 internal const val ARG_NAME = "menuName"
 internal const val ARG_PRICE = "menuPrice"
 
+internal const val REQUEST_BACK_MENU = "backMenu"
 
 class MenuThanksFragment : Fragment() {
     //Bindingクラスのインスタンスを入れておくプロパティ(Nullable)
@@ -50,6 +52,6 @@ class MenuThanksFragment : Fragment() {
     }
 
     private fun onBackButtonClick(v: View) {
-        parentFragmentManager.popBackStack()
+        parentFragmentManager.setFragmentResult(REQUEST_BACK_MENU, bundleOf())
     }
 }
