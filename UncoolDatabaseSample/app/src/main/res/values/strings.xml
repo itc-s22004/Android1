@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UncoolDatabaseSample</string>
+    <string name="header_text">登録データ一覧</string>
+    <string name="add_data">データ登録</string>
+    <string name="name_hint">食べ物/飲み物 の名前</string>
+    <string name="save">保存</string>
+    <string name="impressions">感想</string>
+</resources>
